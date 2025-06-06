@@ -34,10 +34,10 @@ Facilitar la administración y visualización de eventos presenciales mediante u
 ## ⚙️ Instalación y Ejecución
 
 ### 1. Clonar el repositorio
-
+```bash
 git clone https://github.com/tu-usuario/plataforma-eventos-locales.git
 cd plataforma-eventos-locales
-
+```
 ### 2. Crear y activar entorno virtual
 
 ```bash
