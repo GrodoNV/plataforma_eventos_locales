@@ -69,7 +69,38 @@ http://127.0.0.1:8000/
 ## 📁 Estructura del Proyecto
 
 ```
-por verse.....................
+plataforma_eventos_locales/
+│
+├── plataforma_eventos_locales/       # Configuración del proyecto Django (manage.py apunta aquí)
+│   ├── __init__.py
+│   ├── asgi.py
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+│
+├── eventos/                          # Aplicación principal (donde van modelos, vistas, urls, etc)
+│   ├── migrations/
+│   ├── static/                       # Archivos estáticos (CSS, JS, imágenes)
+│   ├── templates/                    # Plantillas HTML
+│   ├── __init__.py
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+├── docs/                             # Documentación técnica y de desarrollo
+│   ├── diagrama_bd.png               # Diagrama de base de datos (puede ser PNG o PDF)
+│   ├── estructura_proyecto.md        # Descripción de carpetas y módulos
+│   └── decisiones_tecnicas.md        # Qué se eligió y por qué (ej: por qué usar modelos separados)
+│
+├── BITACORA.md                       # Cambios cronológicos o avances diarios
+├── README.md                         # Descripción del proyecto (instalación, requerimientos, etc)
+├── requirements.txt                  # Librerías necesarias (usar `pip freeze > requirements.txt`)
+├── .gitignore                        # Para excluir archivos como `__pycache__`, `.env`, etc
+└── manage.py                         # Script para ejecutar comandos Django
+
 ```
 
 ---
