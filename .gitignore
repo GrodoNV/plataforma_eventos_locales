@@ -1,0 +1,43 @@
+# Entorno virtual
+venv/
+ENV/
+env/
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Archivos de configuración del entorno
+*.env
+*.env.*
+
+# Archivos de base de datos
+*.sqlite3
+
+# Archivos de logs
+*.log
+
+# Archivos temporales
+*.tmp
+*.swp
+*.bak
+
+# Archivos y carpetas de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de migraciones generadas
+**/migrations/*.py
+!**/migrations/__init__.py
+
+# Archivos generados por PyCharm o VSCode
+.idea/
+.vscode/
+
+# Archivos de coverage y testing
+htmlcov/
+.coverage
+.tox/
+.pytest_cache/
