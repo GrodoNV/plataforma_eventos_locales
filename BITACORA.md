@@ -14,6 +14,15 @@
 🔧 No hubo problemas. Se consideraron las funcionalidades requeridas (filtro por fecha y registro de asistencia) para estructurar las tablas y relaciones adecuadamente.
 
 
+🗓 2025-06-08 – Se agregó el documento de presentación del proyecto con revision en espera por parte de  (formato Word) – Efraín Silva Choque  
+🔧 Ningún problema. El archivo fue creado y guardado correctamente en la carpeta `docs/`.
+
+
+🗓 2025-06-08 – Se crearon los modelos: Evento, Organizador, Inscripción y Lugar, con sus respectivas relaciones. También se registraron en el panel de administración – Gabriel Rodrigo Nina Vargas  
+🔧 Ningún problema. Se validó que las relaciones y registros en `models.py` y `admin.py` funcionen correctamente.
+
+
+
 ### Formato para nuevas entradas:
 🗓 FECHA – Qué se hizo – Quién lo hizo  
 🔧 Problemas (si hubo) y cómo se resolvieron
