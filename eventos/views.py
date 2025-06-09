@@ -6,6 +6,8 @@ from .models import Inscripcion, Asistencia
 from .models import Evento, Inscripcion
 from .forms import InscripcionForm
 from django.shortcuts import get_object_or_404, render, redirect
+from .forms import EventoForm
+from .forms import InscripcionForm, EventoForm
 
 def lista_eventos(request):
     fecha_str = request.GET.get('fecha')
@@ -66,4 +68,4 @@ def crear_evento(request):
             return redirect('lista_eventos')  # o donde quieras
     else:
         form = EventoForm()
-    return render(request, 'crear_evento.html', {'form': form})
+    return render(request, 'eventos/crear_evento.html', {'form': form})
