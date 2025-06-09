@@ -20,3 +20,11 @@ class Inscripcion(models.Model):
     email = models.EmailField()
     evento = models.ForeignKey(Evento, on_delete=models.CASCADE)
     fecha_inscripcion = models.DateTimeField(auto_now_add=True)
+
+class Asistencia(models.Model):
+    inscripcion = models.OneToOneField('Inscripcion', on_delete=models.CASCADE)
+    asistio = models.BooleanField(default=False)
+    hora_registro = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.inscripcion.nombre_participante} - {'Asistió' if self.asistio else 'No asistió'}"

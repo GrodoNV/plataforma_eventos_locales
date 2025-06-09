@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Inscripción a {{ evento.titulo }}</title>
+  </head>
+  <body>
+    <h1>Inscribirse a: {{ evento.titulo }}</h1>
+    <form method="post">
+      {% csrf_token %} {{ form.as_p }}
+      <button type="submit">Inscribirme</button>
+    </form>
+    <a href="/">Volver a la lista</a>
+  </body>
+</html>

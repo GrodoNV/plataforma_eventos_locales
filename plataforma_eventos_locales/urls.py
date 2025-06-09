@@ -3,5 +3,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('eventos/', include('eventos.urls')),
+    path('', include('eventos.urls')),  # Ruta raíz muestra los eventos
 ]
