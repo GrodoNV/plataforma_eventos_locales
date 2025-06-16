@@ -16,6 +16,7 @@ from .models import Inscripcion
 from .forms import InscripcionForm
 from django.shortcuts import render, get_object_or_404
 from .models import Evento, Inscripcion
+from django.shortcuts import render, get_object_or_404, redirect
 
 def lista_inscripciones(request, evento_id):
     evento = get_object_or_404(Evento, id=evento_id)
@@ -192,11 +193,21 @@ def eliminar_inscripcion(request, inscripcion_id):
     return render(request, 'eventos/eliminar_inscripcion.html', {'inscripcion': inscripcion})
 
 
-
-# Registrar asistencia a un evento
 def registrar_asistencia(request, inscripcion_id):
     inscripcion = get_object_or_404(Inscripcion, id=inscripcion_id)
     asistencia, created = Asistencia.objects.get_or_create(inscripcion=inscripcion)
-    asistencia.asistio = True
-    asistencia.save()
-    return redirect('lista_eventos')  # Cambia esto según tu flujo
+
+    if request.method == 'POST':
+        # El checkbox solo envía valor si está marcado
+        asistio = 'presente' in request.POST
+        asistencia.asistio = asistio
+        asistencia.save()
+        return redirect('lista_inscripciones')  # Cambia aquí si quieres otra URL
+
+    # GET: mostrar formulario con estado actual
+    context = {
+        'inscripcion': inscripcion,
+        'asistencia': asistencia,
+    }
+    return render(request, 'inscripciones/registro_asistencia.html', context)
+

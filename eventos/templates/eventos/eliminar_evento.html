@@ -1,7 +1,16 @@
-<h2>¿Estás seguro de que deseas eliminar el evento "{{ evento.titulo }}"?</h2>
+{% extends "eventos/base.html" %}
 
-<form method="post">
-  {% csrf_token %}
-  <button type="submit">Sí, eliminar</button>
-  <a href="{% url 'lista_eventos' %}">Cancelar</a>
-</form>
+{% block title %} Eliminar Evento {% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 600px;">
+  <div class="card-body">
+    <h2 class="card-title mb-4">¿Estás seguro de que deseas eliminar el evento "{{ evento.titulo }}"?</h2>
+    <form method="post" novalidate>
+      {% csrf_token %}
+      <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+      <a href="{% url 'lista_eventos' %}" class="btn btn-secondary ms-2">Cancelar</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
