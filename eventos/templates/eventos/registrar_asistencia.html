@@ -1,0 +1,21 @@
+<h2>Registro de Asistencia</h2>
+<p>Participante: {{ inscripcion.nombre_participante }}</p>
+
+<form method="post">
+  {% csrf_token %}
+  <label>
+    <input
+      type="checkbox"
+      name="presente"
+      {%
+      if
+      asistencia.presente
+      %}checked{%
+      endif
+      %}
+    />
+    Asistió
+  </label>
+  <br />
+  <button type="submit">Guardar asistencia</button>
+</form>

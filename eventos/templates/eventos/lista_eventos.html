@@ -20,7 +20,11 @@
         {{ evento.descripcion }}<br />
         Fecha: {{ evento.fecha }}<br />
         Lugar: {{ evento.lugar.nombre }}<br />
-        Organizador: {{ evento.organizador.nombre }}
+        Organizador: {{ evento.organizador.nombre }}<br />
+
+        <!-- Agrega esto justo debajo -->
+        <a href="{% url 'editar_evento' evento.id %}">Editar</a> |
+        <a href="{% url 'eliminar_evento' evento.id %}">Eliminar</a>
       </li>
       {% empty %}
       <li>No hay eventos para esta fecha.</li>

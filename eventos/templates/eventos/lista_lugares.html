@@ -1,0 +1,15 @@
+<h2>Lugares</h2>
+<a href="{% url 'crear_lugar' %}">Crear nuevo lugar</a>
+<ul>
+  {% for lugar in lugares %}
+  <li>
+    {{ lugar.nombre }} - {{ lugar.direccion }} [<a
+      href="{% url 'editar_lugar' lugar.id %}"
+      >Editar</a
+    >] [<a href="{% url 'eliminar_lugar' lugar.id %}">Eliminar</a>]
+  </li>
+  {% empty %}
+  <li>No hay lugares registrados.</li>
+  {% endfor %}
+</ul>
+<a href="/">Volver al inicio</a>
