@@ -1,36 +1,42 @@
 from django import forms
-from .models import Inscripcion
-from .models import Organizador
-from .models import Lugar
-from .models import Inscripcion
-
-class LugarForm(forms.ModelForm):
-    class Meta:
-        model = Lugar
-        fields = ['nombre', 'direccion']        
-
-class OrganizadorForm(forms.ModelForm):
-    class Meta:
-        model = Organizador
-        fields = ['nombre', 'email']  # Ajusta según tus campos reales
-
-
-class InscripcionForm(forms.ModelForm):
-    class Meta:
-        model = Inscripcion
-        fields = ['nombre_participante']
-
-from .models import Evento
-
+from .models import Evento, Inscripcion, Organizador, Lugar
 
 class EventoForm(forms.ModelForm):
     class Meta:
         model = Evento
-        fields = ['titulo', 'descripcion', 'fecha', 'lugar', 'organizador']  # Ajusta según tus campos reales
-
-
+        fields = '__all__'
+        widgets = {
+            'titulo': forms.TextInput(attrs={'class': 'form-control'}),
+            'descripcion': forms.Textarea(attrs={'class': 'form-control'}),
+            'fecha': forms.DateTimeInput(attrs={'class': 'form-control', 'type': 'datetime-local'}),
+            'lugar': forms.Select(attrs={'class': 'form-select'}),
+            'organizador': forms.Select(attrs={'class': 'form-select'}),
+        }
 
 class InscripcionForm(forms.ModelForm):
     class Meta:
         model = Inscripcion
-        fields = ['evento', 'nombre_participante']
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+            'evento': forms.Select(attrs={'class': 'form-select'}),
+        }
+
+class OrganizadorForm(forms.ModelForm):
+    class Meta:
+        model = Organizador
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control'}),
+        }
+
+class LugarForm(forms.ModelForm):
+    class Meta:
+        model = Lugar
+        fields = '__all__'
+        widgets = {
+            'nombre': forms.TextInput(attrs={'class': 'form-control'}),
+            'direccion': forms.TextInput(attrs={'class': 'form-control'}),
+        }

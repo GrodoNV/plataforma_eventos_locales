@@ -1,14 +1,41 @@
-<h2>Organizadores</h2>
-<a href="{% url 'crear_organizador' %}">Crear nuevo</a>
-<ul>
-  {% for organizador in organizadores %}
-  <li>
-    {{ organizador.nombre }} - {{ organizador.email }} [<a
-      href="{% url 'editar_organizador' organizador.id %}"
-      >Editar</a
-    >] [<a href="{% url 'eliminar_organizador' organizador.id %}">Eliminar</a>]
-  </li>
-  {% empty %}
-  <li>No hay organizadores.</li>
-  {% endfor %}
-</ul>
+{% extends "eventos/base.html" %} {% block title %} Organizadores {% endblock %}
+{% block content %}
+<div class="card mx-auto" style="max-width: 700px">
+  <div class="card-body">
+    <h2 class="card-title mb-4">Organizadores</h2>
+
+    <a href="{% url 'crear_organizador' %}" class="btn btn-primary mb-3"
+      >Crear nuevo</a
+    >
+
+    {% if organizadores %}
+    <ul class="list-group">
+      {% for organizador in organizadores %}
+      <li
+        class="list-group-item d-flex justify-content-between align-items-center"
+      >
+        <div>
+          <strong>{{ organizador.nombre }}</strong><br />
+          <small class="text-muted">{{ organizador.email }}</small>
+        </div>
+        <div>
+          <a
+            href="{% url 'editar_organizador' organizador.id %}"
+            class="btn btn-sm btn-outline-primary me-2"
+            >Editar</a
+          >
+          <a
+            href="{% url 'eliminar_organizador' organizador.id %}"
+            class="btn btn-sm btn-outline-danger"
+            >Eliminar</a
+          >
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-muted">No hay organizadores.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

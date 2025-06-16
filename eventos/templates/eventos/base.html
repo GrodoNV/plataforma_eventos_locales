@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Eventos{% endblock %}</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="{% url 'lista_eventos' %}">Eventos</a>
+        <div class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a href="{% url 'lista_eventos' %}" class="nav-link">Inicio</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'crear_evento' %}" class="nav-link"
+                >Crear Evento</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'lista_organizadores' %}" class="nav-link"
+                >Organizadores</a
+              >
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'lista_lugares' %}" class="nav-link">Lugares</a>
+            </li>
+            <li class="nav-item">
+              <a href="{% url 'lista_inscripciones' %}" class="nav-link"
+                >Inscripciones</a
+              >
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container mt-4">{% block content %}{% endblock %}</main>
+  </body>
+</html>

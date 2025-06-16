@@ -1,15 +1,32 @@
-<h2>Lugares</h2>
-<a href="{% url 'crear_lugar' %}">Crear nuevo lugar</a>
-<ul>
-  {% for lugar in lugares %}
-  <li>
-    {{ lugar.nombre }} - {{ lugar.direccion }} [<a
-      href="{% url 'editar_lugar' lugar.id %}"
-      >Editar</a
-    >] [<a href="{% url 'eliminar_lugar' lugar.id %}">Eliminar</a>]
-  </li>
-  {% empty %}
-  <li>No hay lugares registrados.</li>
-  {% endfor %}
-</ul>
-<a href="/">Volver al inicio</a>
+{% extends "eventos/base.html" %}
+
+{% block title %} Lugares {% endblock %}
+
+{% block content %}
+<div class="card mx-auto" style="max-width: 600px">
+  <div class="card-body">
+    <h2 class="card-title mb-4">Lugares</h2>
+    <a href="{% url 'crear_lugar' %}" class="btn btn-primary mb-3">Crear nuevo lugar</a>
+
+    {% if lugares %}
+    <ul class="list-group">
+      {% for lugar in lugares %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <strong>{{ lugar.nombre }}</strong> - {{ lugar.direccion }}
+        </div>
+        <div>
+          <a href="{% url 'editar_lugar' lugar.id %}" class="btn btn-sm btn-outline-primary me-2">Editar</a>
+          <a href="{% url 'eliminar_lugar' lugar.id %}" class="btn btn-sm btn-outline-danger">Eliminar</a>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>No hay lugares registrados.</p>
+    {% endif %}
+
+    <a href="/" class="btn btn-secondary mt-4">Volver al inicio</a>
+  </div>
+</div>
+{% endblock %}

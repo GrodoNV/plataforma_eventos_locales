@@ -1,7 +1,0 @@
-<h2>Editar Lugar</h2>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Actualizar</button>
-</form>
-<a href="{% url 'lista_lugares' %}">Volver</a>

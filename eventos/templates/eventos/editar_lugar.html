@@ -1,11 +1,11 @@
 {% extends "eventos/base.html" %}
 
-{% block title %} Crear Inscripción {% endblock %}
+{% block title %} Editar Lugar {% endblock %}
 
 {% block content %}
 <div class="card mx-auto" style="max-width: 600px">
   <div class="card-body">
-    <h2 class="card-title mb-4">Crear Inscripción</h2>
+    <h2 class="card-title mb-4">Editar Lugar</h2>
     <form method="post" novalidate>
       {% csrf_token %}
       {{ form.non_field_errors }}
@@ -21,8 +21,8 @@
         {% endfor %}
       </div>
       {% endfor %}
-      <button type="submit" class="btn btn-success">Guardar</button>
-      <a href="{% url 'lista_inscripciones' %}" class="btn btn-secondary ms-2">Cancelar</a>
+      <button type="submit" class="btn btn-success">Actualizar</button>
+      <a href="{% url 'lista_lugares' %}" class="btn btn-secondary ms-2">Cancelar</a>
     </form>
   </div>
 </div>
